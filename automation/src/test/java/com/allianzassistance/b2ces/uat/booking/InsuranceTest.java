@@ -30,8 +30,7 @@ public class InsuranceTest {
 		// Select the desired insurance coverage
 		Select oSelect = new Select (driver.findElement(By.xpath("//button[@title='Seleccionar']")));
 		oSelect.selectByVisibleText("Vacaciones");
-		//driver.findElement(By.xpath("//div[@class='ng-scope']/div/div[@class='ng-scope']//div[@class='region-primary']/div[@class='ng-scope primary']//form[@name='step1form']/div[1]/div[2]/button[@title='Seleccionar']/span[@class='filter-option pull-left']")).click();
-		//driver.findElement(By.xpath("//select[@id='typeOfCover']/optgroup/option[2]")).click();
+		
 	}
 
 	private void sleep(long m) {
