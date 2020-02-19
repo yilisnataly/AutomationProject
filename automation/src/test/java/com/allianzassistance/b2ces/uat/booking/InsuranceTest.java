@@ -4,8 +4,8 @@ import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.Test;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InsuranceTest {
 
@@ -23,15 +23,15 @@ public class InsuranceTest {
 		String url = "https://b2c-es.uat.booking.allianz-assistance.com/iframe.html?angularparams=/TRAVEL/B2C/ES/es_ES/step-1";
 		driver.get(url);
 
-		// sleep for 5 seconds
-		sleep(5000);
-		
 
 		// Select the desired insurance coverage
-		Select oSelect = new Select (driver.findElement(By.xpath("//button[@title='Seleccionar']")));
-		oSelect.selectByVisibleText("Vacaciones");
+		WebDriverWait wait = new WebDriverWait (driver, 10);
 		
+		driver.findElement(By.xpath("//*[@class='caret']//preceding::span[1]")).click();
+	  	wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@class='dropdown-menu_open']/child::[2]")));
+		driver.findElement(By.xpath("//*[@class='dropdown-menu_open']/child::[2]")).click();
 	}
+	
 
 	private void sleep(long m) {
 		try {
